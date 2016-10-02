@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<product id="123">
+    <name>XXXXXXXXXXXXX</name>
+    <price>53.45<price>
+    <variant>
+        <size>S</size>
+        <availibe>33</availibe>
+    </variant>
+    <variant>
+        <size>M</size>
+        <availibe>12</availibe>
+    </variant>
+    <variant>
+        <size>XL</size>
+        <availibe>23</availibe>
+    </variant>
+
+</product>
