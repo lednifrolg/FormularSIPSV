@@ -5,21 +5,40 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-
+<catalog>
 <product id="123">
     <name>XXXXXXXXXXXXX</name>
-    <price>53.45<price>
+    <price>53.45</price>
     <variant>
         <size>S</size>
-        <availibe>33</availibe>
+        <available>33</available>
     </variant>
     <variant>
         <size>M</size>
-        <availibe>12</availibe>
+        <available>12</available>
     </variant>
     <variant>
         <size>XL</size>
-        <availibe>23</availibe>
+        <available>23</available>
     </variant>
 
 </product>
+
+<product id="124">
+<name>XXXasdasXXXX</name>
+<price>53.545</price>
+<variant>
+    <size>XS</size>
+    <available>35</available>
+</variant>
+<variant>
+    <size>L</size>
+    <available>8</available>
+</variant>
+<variant>
+    <size>XXL</size>
+    <available>3</available>
+</variant>
+
+</product>
+</catalog>

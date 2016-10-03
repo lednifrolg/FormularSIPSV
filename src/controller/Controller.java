@@ -5,17 +5,23 @@
  */
 package controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JTextField;
+
 import model.Product;
 import model.Variant;
 import view.FormularView;
+import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.*;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
+
 
 /**
  *
@@ -66,7 +72,26 @@ public class Controller {
 
     // TODO : 
     public void validateXML() {
-        
+
+            File schemaFile = new File("src/formular/schema.xsd");
+        Source xmlFile = new StreamSource(new File("src/formular/ProductExample.xml"));
+        SchemaFactory schemaFactory = SchemaFactory
+            .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        Schema schema = null;
+        try {
+            schema = schemaFactory.newSchema(schemaFile);
+
+        Validator validator = schema.newValidator();
+
+
+            validator.validate(xmlFile);
+        } catch (org.xml.sax.SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(xmlFile.getSystemId() + " is valid");
+
     }
     
     // TODO : 
@@ -77,7 +102,21 @@ public class Controller {
     
     // TODO : 
     public void saveAsXSLT() {
-        
+        TransformerFactory factory = TransformerFactory.newInstance();
+        Source xslt = new StreamSource(new File("src/formular/transformSchema.xslt"));
+        Transformer transformer = null;
+        try {
+            transformer = factory.newTransformer(xslt);
+
+
+        Source text = new StreamSource(new File("src/formular/ProductExample.xml"));
+        transformer.transform(text, new StreamResult(new File("src/formular/xsltOutput.xml")));
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+        System.out.println("XSLT transformation completed.");
     }
     
     public void updateProduct() {

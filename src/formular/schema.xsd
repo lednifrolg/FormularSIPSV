@@ -8,7 +8,7 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element type="xs:string" name="size"/>
-                            <xs:element type="xs:byte" name="availibe"/>
+                            <xs:element type="xs:byte" name="available"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
