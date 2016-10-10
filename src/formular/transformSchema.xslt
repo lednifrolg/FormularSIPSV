@@ -12,18 +12,17 @@
                         <th>Available</th>
                     </tr>
                     <xsl:for-each select="catalog/product">
-                        <tr>
-                            <td><xsl:value-of select="name"/></td>
-                            <td><xsl:value-of select="price"/></td>
-
-                            <xsl:for-each select="variant">
-
+                        <xsl:variable name="productName" select="name"/>
+                        <xsl:variable name="productPrice" select="price"/>
+                        <xsl:for-each select="variant">
+                            <tr>
+                                <td><xsl:value-of select="$productName"/> </td>
+                                <td><xsl:value-of select="$productPrice"/></td>
                                 <td><xsl:value-of select="size" /></td>
                                 <td><xsl:value-of select="available" /></td>
+                            </tr>
+                        </xsl:for-each>
 
-                            </xsl:for-each>
-
-                        </tr>
                     </xsl:for-each>
                 </table>
             </body>

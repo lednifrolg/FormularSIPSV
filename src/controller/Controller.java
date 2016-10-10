@@ -70,10 +70,9 @@ public class Controller {
 
     }
 
-    // TODO : 
     public void validateXML() {
 
-            File schemaFile = new File("src/formular/schema.xsd");
+            File schemaFile = new File("src/formular/schema2.xsd");
         Source xmlFile = new StreamSource(new File("src/formular/ProductExample.xml"));
         SchemaFactory schemaFactory = SchemaFactory
             .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -100,7 +99,7 @@ public class Controller {
         System.out.println(mProduct);
     }
     
-    // TODO : 
+
     public void saveAsXSLT() {
         TransformerFactory factory = TransformerFactory.newInstance();
         Source xslt = new StreamSource(new File("src/formular/transformSchema.xslt"));
@@ -110,7 +109,7 @@ public class Controller {
 
 
         Source text = new StreamSource(new File("src/formular/ProductExample.xml"));
-        transformer.transform(text, new StreamResult(new File("src/formular/xsltOutput.xml")));
+        transformer.transform(text, new StreamResult(new File("src/formular/xsltOutput.html")));
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         } catch (TransformerException e) {
