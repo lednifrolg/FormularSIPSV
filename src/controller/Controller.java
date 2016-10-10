@@ -108,6 +108,7 @@ public class Controller {
             transformer = factory.newTransformer(xslt);
 
 
+
         Source text = new StreamSource(new File("src/formular/ProductExample.xml"));
         transformer.transform(text, new StreamResult(new File("src/formular/xsltOutput.html")));
         } catch (TransformerConfigurationException e) {
