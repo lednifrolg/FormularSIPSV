@@ -35,41 +35,19 @@ public class FormularView extends JFrame {
 
         mVariantsList.setModel(model);
 
-        mRemoveVariantButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mRemoveVariantButtonActionPerformed(evt);
-            }
-        });
+        mRemoveVariantButton.addActionListener(evt -> mRemoveVariantButtonActionPerformed(evt));
 
-        mAddVariantButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mAddVariantButtonActionPerformed(evt);
-            }
-        });
+        mAddVariantButton.addActionListener(evt -> mAddVariantButtonActionPerformed(evt));
 
-        mValidateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mValidateButtonActionPerformed(evt);
-            }
-        });
+        mValidateButton.addActionListener(evt -> mValidateButtonActionPerformed(evt));
 
-        mSaveXMLButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mSaveXMLButtonActionPerformed(evt);
-            }
-        });
+        mSaveXMLButton.addActionListener(evt -> mSaveXMLButtonActionPerformed(evt));
 
-        mCloseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        mCloseButton.addActionListener(evt -> jButton3ActionPerformed(evt));
 
-        mSaveXSLTButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mSaveXSLTButtonActionPerformed(evt);
-            }
-        });
+        mSaveXSLTButton.addActionListener(evt -> mSaveXSLTButtonActionPerformed(evt));
+
+        signButton.addActionListener(evt -> mSignDocButtonActionPerformed(evt));
 
         this.setContentPane(MainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -125,5 +103,8 @@ public class FormularView extends JFrame {
         mController.saveAsXSLT();
     }//GEN-LAST:event_mSaveXSLTButtonActionPerformed
 
+    private void mSignDocButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        mController.SignDoc();
+    }
 
 }

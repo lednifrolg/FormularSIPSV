@@ -8,6 +8,7 @@ package controller;
 import model.Product;
 import model.Variant;
 import util.WriteXMLFile;
+import util.XMLSigner;
 import view.FormularView;
 
 import javax.swing.*;
@@ -136,5 +137,10 @@ public class Controller {
 
         if (mVariants != null)
             mProduct.setVariants(mVariants);
+    }
+
+    public void SignDoc() {
+        XMLSigner signer = new XMLSigner("src/formular/file.xml", "src/formular/schema2.xsd", "src/formular/transformSchema.xslt", "http://stark.guru/");
+        signer.sign();
     }
 }
