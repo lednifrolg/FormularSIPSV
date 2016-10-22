@@ -5,26 +5,25 @@
  */
 package controller;
 
+import model.Product;
+import model.Variant;
+import util.WriteXMLFile;
+import view.FormularView;
+
+import javax.swing.*;
+import javax.xml.XMLConstants;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.JTextField;
-
-import model.Product;
-import model.Variant;
-import view.FormularView;
-import javax.xml.XMLConstants;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.*;
-import javax.xml.transform.*;
-import javax.xml.transform.stream.StreamResult;
 
 
 /**
- *
  * @author nolofinwe
  */
 public class Controller {
@@ -46,7 +45,7 @@ public class Controller {
 
     public void addVariant() {
         System.out.println(mView.getAvailTextField().getText());
-        
+
         JList<Variant> mVariantsList = mView.getVariantsList();
         DefaultListModel<Variant> m = (DefaultListModel<Variant>) mVariantsList.getModel();
 
@@ -54,15 +53,15 @@ public class Controller {
                 Integer.parseInt(mView.getAvailTextField().getText()));
 
         m.addElement(variant);
-       
-        
+
+
         mVariants.add(variant);
     }
 
     public void removeVariant() {
         JList<Variant> mVariantsList = mView.getVariantsList();
         DefaultListModel<Variant> m = (DefaultListModel<Variant>) mVariantsList.getModel();
-        
+
         Variant variant = m.remove(mVariantsList.getSelectedIndex());
         System.out.println(mVariants.size());
         mVariants.remove(variant);
@@ -72,15 +71,15 @@ public class Controller {
 
     public void validateXML() {
 
-            File schemaFile = new File("src/formular/schema2.xsd");
-        Source xmlFile = new StreamSource(new File("src/formular/ProductExample.xml"));
+        File schemaFile = new File("src/formular/schema2.xsd");
+        Source xmlFile = new StreamSource(new File("src/formular/file.xml"));
         SchemaFactory schemaFactory = SchemaFactory
-            .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+                .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         Schema schema = null;
         try {
             schema = schemaFactory.newSchema(schemaFile);
 
-        Validator validator = schema.newValidator();
+            Validator validator = schema.newValidator();
 
 
             validator.validate(xmlFile);
@@ -92,13 +91,14 @@ public class Controller {
         System.out.println(xmlFile.getSystemId() + " is valid");
 
     }
-    
+
     // TODO : 
     public void saveAsXML() {
         updateProduct();
         System.out.println(mProduct);
+        WriteXMLFile.save(mProduct);
     }
-    
+
 
     public void saveAsXSLT() {
         TransformerFactory factory = TransformerFactory.newInstance();
@@ -108,8 +108,8 @@ public class Controller {
             transformer = factory.newTransformer(xslt);
 
 
-        Source text = new StreamSource(new File("src/formular/ProductExample.xml"));
-        transformer.transform(text, new StreamResult(new File("src/formular/xsltOutput.html")));
+            Source text = new StreamSource(new File("src/formular/file.xml"));
+            transformer.transform(text, new StreamResult(new File("src/formular/xsltOutput.html")));
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         } catch (TransformerException e) {
@@ -117,23 +117,23 @@ public class Controller {
         }
         System.out.println("XSLT transformation completed.");
     }
-    
+
     public void updateProduct() {
         if (!mView.getNameTextField().getText().isEmpty()) {
             System.out.println(mView.getNameTextField().getText());
             mProduct.setName(mView.getNameTextField().getText());
         }
-        
+
         if (!mView.getPriceTextField().getText().isEmpty()) {
             System.out.println(mView.getPriceTextField().getText());
             mProduct.setPrice(Double.parseDouble(mView.getPriceTextField().getText()));
         }
-        
+
         if (!mView.getIDTextField().getText().isEmpty()) {
             System.out.println(mView.getIDTextField().getText());
             mProduct.setID(Integer.parseInt(mView.getIDTextField().getText()));
         }
-        
+
         if (mVariants != null)
             mProduct.setVariants(mVariants);
     }
