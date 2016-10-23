@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:egonp="http://schemas.fiit.sk/form">
     <xsl:template match="/">
         <html>
             <body>
@@ -11,15 +11,19 @@
                         <th>Size</th>
                         <th>Available</th>
                     </tr>
-                    <xsl:for-each select="catalog/product">
-                        <xsl:variable name="productName" select="name"/>
-                        <xsl:variable name="productPrice" select="price"/>
-                        <xsl:for-each select="variant">
+                    <xsl:for-each select="/egonp:catalog/egonp:product">
+                        <xsl:variable name="productName" select="egonp:name"/>
+                        <xsl:variable name="productPrice" select="egonp:price"/>
+                        <xsl:for-each select="egonp:variant">
                             <tr>
                                 <td><xsl:value-of select="$productName"/> </td>
                                 <td><xsl:value-of select="$productPrice"/></td>
-                                <td><xsl:value-of select="size" /></td>
-                                <td><xsl:value-of select="available" /></td>
+                                <td>
+                                    <xsl:value-of select="egonp:size"/>
+                                </td>
+                                <td>
+                                    <xsl:value-of select="egonp:available"/>
+                                </td>
                             </tr>
                         </xsl:for-each>
 

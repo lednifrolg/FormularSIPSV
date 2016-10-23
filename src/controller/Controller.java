@@ -140,7 +140,7 @@ public class Controller {
     }
 
     public void SignDoc() {
-        XMLSigner signer = new XMLSigner("src/formular/file.xml", "src/formular/schema2.xsd", "src/formular/transformSchema.xslt", "http://stark.guru/");
+        XMLSigner signer = new XMLSigner("src/formular/file.xml", "src/formular/schema2.xsd", "src/formular/transformSchema.xslt", "http://schemas.fiit.sk/form");
         signer.sign();
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog>
+    <product id="23">
+        <name>test1</name>
+        <price>23.0</price>
+        <variant>
+            <size>M</size>
+            <available>23</available>
+        </variant>
+        <variant>
+            <size>L</size>
+            <available>12</available>
+        </variant>
+        <variant>
+            <size>XL</size>
+            <available>1</available>
+        </variant>
+    </product>
+</catalog>

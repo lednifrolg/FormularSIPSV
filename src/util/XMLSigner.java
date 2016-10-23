@@ -2,7 +2,6 @@ package util;
 
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
-import com.jacob.com.Variant;
 
 import java.io.*;
 import java.util.Scanner;
@@ -12,18 +11,18 @@ import java.util.Scanner;
  */
 public class XMLSigner {
 
-    String mOriginalXMLFile;
-    String mSchemaFile;
-    String mXSLFile;
+    private String mOriginalXMLFile;
+    private String mSchemaFile;
+    private String mXSLFile;
 
-    String mOriginalXMLFileContent;
-    String mSchemaFileContent;
-    String mXSLFileContent;
+    private String mOriginalXMLFileContent;
+    private String mSchemaFileContent;
+    private String mXSLFileContent;
 
-    String mNamespace;
+    private String mNamespace;
 
-    ActiveXComponent mXadesSigner;
-    ActiveXComponent mXMLPlugin;
+    private ActiveXComponent mXadesSigner;
+    private ActiveXComponent mXMLPlugin;
 
     public XMLSigner(String originalXMLFile, String schemaFile, String XSLFile, String namespace) {
         this.mOriginalXMLFile = new File(originalXMLFile).getName();
@@ -48,9 +47,9 @@ public class XMLSigner {
     public void sign() {
         System.out.println(mOriginalXMLFileContent);
 
-        Variant xmlObj = Dispatch.call(mXMLPlugin, "CreateObject", "id1", "catalog",
-                mOriginalXMLFileContent, mSchemaFileContent, "", "http://stark.guru/countries.xsd", mXSLFileContent, "http://stark.guru/countries.xsd");
-        System.out.println(mXadesSigner.getProperty("ErrorMessage").getString());
+        Object xmlObj = Dispatch.call(mXMLPlugin, "CreateObject", "ID1", "catalog",
+                mOriginalXMLFileContent, mSchemaFileContent, "http://schemas.fiit.sk/form", mNamespace, mXSLFileContent, "http://schemas.fiit.sk/form.xsd");
+        System.out.println(mXMLPlugin.getProperty("ErrorMessage").getString());
 
 
         Dispatch.call(mXadesSigner, "AddObject", xmlObj);
