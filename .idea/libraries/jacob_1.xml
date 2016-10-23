@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="jacob-1">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/lib" />
+      <root url="file://$PROJECT_DIR$/lib/jacob-1.18" />
     </CLASSES>
     <JAVADOC />
     <NATIVE>
-      <root url="file://$PROJECT_DIR$/lib" />
+      <root url="file://$PROJECT_DIR$/lib/jacob-1.18" />
     </NATIVE>
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/jacob-1.18" recursive="false" />
   </library>
 </component>
