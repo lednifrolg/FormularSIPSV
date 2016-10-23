@@ -1,0 +1,60 @@
+<html>
+    <body>
+        <table border="1">
+            <tr bgcolor="#9acd32">
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Size</th>
+                <th>Available</th>
+            </tr>
+            <tr>
+                <td>XXXXXXXXXXXXX</td>
+                <td>53.45</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>S</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>M</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>XL</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>XXXasdasXXXX</td>
+                <td>53.545</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>XS</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>L</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>XXL</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </body>
+</html>
