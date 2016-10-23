@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="http://schemas.fiit.sk/form">
-    <product id="1">
-        <name>nazov</name>
-        <price>19.0</price>
-        <variant>
-            <size>L</size>
-            <available>32</available>
-        </variant>
-        <variant>
-            <size>L</size>
-            <available>32</available>
-        </variant>
-    </product>
-</catalog>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><catalog xmlns="http://schemas.fiit.sk/form"><product id="2"><name>test</name><price>23.0</price><variant><size>l</size><available>1</available></variant></product></catalog>

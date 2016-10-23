@@ -32,6 +32,10 @@ public class WriteXMLFile {
             Element rootElement = doc.createElement("catalog");
             doc.appendChild(rootElement);
 
+            Attr xmlns = doc.createAttribute("xmlns");
+            xmlns.setValue("http://schemas.fiit.sk/form");
+            rootElement.setAttributeNode(xmlns);
+
             // staff elements
             Element product = doc.createElement("product");
             rootElement.appendChild(product);
