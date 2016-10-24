@@ -89,8 +89,10 @@ public class WriteXMLFile {
 
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
+            return false;
         } catch (TransformerException tfe) {
             tfe.printStackTrace();
+            return false;
         }
 
         return true;

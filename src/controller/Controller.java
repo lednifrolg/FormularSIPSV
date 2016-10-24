@@ -19,6 +19,7 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,11 +40,6 @@ public class Controller {
         mProduct = new Product();
     }
 
-    public void setting(JTextField field) {
-        System.out.println("TESTIK");
-        field.setText("DSA");
-    }
-
     public void addVariant() {
         System.out.println(mView.getAvailTextField().getText());
 
@@ -54,7 +50,6 @@ public class Controller {
                 Integer.parseInt(mView.getAvailTextField().getText()));
 
         m.addElement(variant);
-
 
         mVariants.add(variant);
     }
@@ -85,19 +80,32 @@ public class Controller {
 
             validator.validate(xmlFile);
         } catch (org.xml.sax.SAXException e) {
+            showDialog(xmlFile.getSystemId() + " is NOT valid");
             e.printStackTrace();
+            return;
         } catch (IOException e) {
+            showDialog(xmlFile.getSystemId() + " is NOT valid");
             e.printStackTrace();
+            return;
         }
+        showDialog(xmlFile.getSystemId() + " is valid");
         System.out.println(xmlFile.getSystemId() + " is valid");
 
     }
 
-    // TODO : 
+
+    // TODO :
     public void saveAsXML() {
         updateProduct();
         System.out.println(mProduct);
-        WriteXMLFile.save(mProduct);
+        boolean result = WriteXMLFile.save(mProduct);
+
+        if (result) {
+            showDialog("XML File created");
+            openFile("src/formular/file.xml");
+        } else {
+            showDialog("XML File creation failed");
+        }
     }
 
 
@@ -112,11 +120,18 @@ public class Controller {
             Source text = new StreamSource(new File("src/formular/file.xml"));
             transformer.transform(text, new StreamResult(new File("src/formular/xsltOutput.html")));
         } catch (TransformerConfigurationException e) {
+            showDialog("XSLT transformation ERROR");
             e.printStackTrace();
+            return;
         } catch (TransformerException e) {
+            showDialog("XSLT transformation ERROR");
             e.printStackTrace();
+            return;
         }
+        showDialog("XSLT transformation completed.");
         System.out.println("XSLT transformation completed.");
+
+        openFile("src/formular/xsltOutput.html");
     }
 
     public void updateProduct() {
@@ -142,5 +157,24 @@ public class Controller {
     public void SignDoc() {
         XMLSigner signer = new XMLSigner("src/formular/file.xml", "src/formular/schema2.xsd", "src/formular/transformSchema.xslt", "http://schemas.fiit.sk/form");
         signer.sign();
+    }
+
+    private void showDialog(String message) {
+        JOptionPane.showMessageDialog(null, message);
+    }
+
+    /**
+     * Open file in default application
+     * @param path Path to file
+     */
+    private void openFile(String path) {
+        System.out.println("Opening " + path + " in default browser");
+        try {
+            Desktop.getDesktop().open(new File(path));
+            System.out.println("File opened");
+        } catch (IOException e) {
+            System.out.println("File opening failed");
+            e.printStackTrace();
+        }
     }
 }

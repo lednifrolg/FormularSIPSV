@@ -8,7 +8,7 @@
                         <xs:sequence>
                             <xs:element type="xs:string" name="name"/>
                             <xs:element type="xs:float" name="price"/>
-                            <xs:element name="variant" maxOccurs="unbounded" minOccurs="0">
+                            <xs:element name="variant" maxOccurs="unbounded" minOccurs="1">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element type="xs:string" name="size"/>
