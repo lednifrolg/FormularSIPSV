@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xzep:DataEnvelope xmlns:xzep="http://www.ditec.sk/ep/signature_formats/xades_zep/v1.0">
+    <ds:Object xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="ID1">
+        <catalog xmlns="http://schemas.fiit.sk/form">
+            <product id="2">
+                <name>jozo</name>
+                <price>2.0</price>
+                <variant>
+                    <size>L</size>
+                    <available>2</available>
+                </variant>
+            </product>
+        </catalog>
+    </ds:Object>
+    <ds:Object xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="ID1VerificationObject">
+        <XMLVerificationDataReferences xmlns="http://www.ditec.sk/ep/signature_formats/xades_zep_xml/v1.0" DataTarget="#ID1">
+            <SchemaReference>
+                <ds:Reference URI="http://schemas.fiit.sk/form">
+                    <ds:Transforms>
+                        <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </ds:Transforms>
+                    <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                    <ds:DigestValue>q4igTaW/WdGvB8YUBV/wF1B5EmHujj9l7wH5cHS9jPM=</ds:DigestValue>
+                </ds:Reference>
+            </SchemaReference>
+            <VisualTransformReference>
+                <ds:Reference URI="http://schemas.fiit.sk/form.xsd">
+                    <ds:Transforms>
+                        <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </ds:Transforms>
+                    <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                    <ds:DigestValue>MNf4U20vHgwG8BnN/xsjqWLzNiHicYMKIuKjOLhd27I=</ds:DigestValue>
+                </ds:Reference>
+            </VisualTransformReference>
+        </XMLVerificationDataReferences>
+    </ds:Object>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="signatureId">
+        <ds:SignedInfo>
+            <ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+            <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+            <ds:Reference Id="ReferencesignatureIdSignedProperties" Type="http://uri.etsi.org/01903#SignedProperties" URI="#signatureIdSignedProperties">
+                <ds:Transforms>
+                    <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                </ds:Transforms>
+                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                <ds:DigestValue>RqBQgOBRKcry12RSS94W2lWtFi7aLXB1YkxF4/pP+8I=</ds:DigestValue>
+            </ds:Reference>
+            <ds:Reference Id="ReferenceManifestID1" Type="http://www.w3.org/2000/09/xmldsig#Manifest" URI="#ManifestID1">
+                <ds:Transforms>
+                    <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                </ds:Transforms>
+                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                <ds:DigestValue>nmlpr9OBotpd+WDZgqoSe3acH+xStqDrtl7O7foC2wk=</ds:DigestValue>
+            </ds:Reference>
+            <ds:Reference Id="ReferenceManifestID1VerificationObject" Type="http://www.w3.org/2000/09/xmldsig#Manifest" URI="#ManifestID1VerificationObject">
+                <ds:Transforms>
+                    <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                </ds:Transforms>
+                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                <ds:DigestValue>/nNxcvBB2sUVRkCsuIuLzpU7Na/UGjskQaIlNWBwN50=</ds:DigestValue>
+            </ds:Reference>
+            <ds:Reference Id="ReferencesignatureIdSignatureProperties" Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#signatureIdSignatureProperties">
+                <ds:Transforms>
+                    <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                </ds:Transforms>
+                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                <ds:DigestValue>XCQ9zWoNJh57O+ObJLjMKnBHmQKzxD9RApOVOZf6hVg=</ds:DigestValue>
+            </ds:Reference>
+            <ds:Reference Id="ReferencesignatureIdKeyInfo" Type="http://www.w3.org/2000/09/xmldsig#Object" URI="#signatureIdKeyInfo">
+                <ds:Transforms>
+                    <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                </ds:Transforms>
+                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                <ds:DigestValue>byOvLixjzp9PLJ5D07YPrtVBogNoHtuXsKht1JA5Z6s=</ds:DigestValue>
+            </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue Id="signatureIdSignatureValue">AGfXKHOBK5DCTV8Xz8BAFD0uJTZCLr2EeHYmM9sjTHqdfXHbjsr/m26YhQX6ppNuFXUhZralDYffRVuBSIEjW+iiCI2frsAQeWnjdT9GO9BFjPN3+D+riEJtqwiiassGpgRSO4a00cz2/J+dV/vnpbAXmkAHShRcH6W0HJfjTXwqq8dt8mO9FjjE3+BJ4MdVSl7wgp3CwU0id4+dVkiUu5LoA4P4ScU+WG3hi65Ig9MuYQeWXEeLCYm9FCtJRdDB7PWQUZnV0bdNSfz8gOmiL09P1wr8pOZwlH2ySqYM5JeD2O++lVLToreTV6dL2nmD/FbnFWX9Nvwnc93yb5EGTQ==</ds:SignatureValue>
+        <ds:KeyInfo Id="signatureIdKeyInfo">
+            <ds:X509Data>
+                <ds:X509Certificate>MIIEYzCCA0ugAwIBAgIKMFJTmgAAAAABMjANBgkqhkiG9w0BAQsFADCBpDELMAkGA1UEBhMCU0sxGDAWBgNVBAgTD1Nsb3ZhayBSZXB1YmxpYzETMBEGA1UEBxMKQnJhdGlzbGF2YTETMBEGA1UEChMKRElURUMgQS5TLjEaMBgGA1UECxMRU29mdHdhcmUgRGl2aXNpb24xJDAiBgNVBAsTG0RUQyBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTEPMA0GA1UEAxMGRFRDIENBMB4XDTE1MTEyNDA4NTY1N1oXDTIwMTEyMjE0MDQ1NVowGzEZMBcGA1UEAxMQQWRhbSBEaXRla2FjIDI1NjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALEHwo6tj8Wzv6n185yPn9nFJMftcBVFykCmr7eNIWGvZDnW90/qsRi3s3iz0YqX5BEBJRkPAmD1AkIdBJV52IYaSFI+Ha5cPfxNZCwm9vs8Ii/W+1yuQ5+dmNC5ABTKpa1OxsQwEW/atr2tZSSSEj9nw4AcC3r+W/uhaqxhAKrhSBQvPbOuww/pQfddUvtKjd4vVKWCDqhaQgICZKGtlcpRfq6jJiUfJWhgKrpqSKnNEY1HFHP9FNHl0pIPInyrI8qTuglNA2fS+WLl/ltl89XbxMCHI0exlOjq78p3ib71b5i1AbuVu2Qtor1Kdo4gJYz4moufrMxOPhSy+JusDWMCAwEAAaOCAR0wggEZMA4GA1UdDwEB/wQEAwIE8DATBgNVHSUEDDAKBggrBgEFBQcDAjAdBgNVHQ4EFgQUnC1WIXQfLtp593EQ8Y19dJlVxswwHwYDVR0jBBgwFoAUvETqqT8gOvVlv1xUO2fUeDwXGcgwRgYDVR0fBD8wPTA7oDmgN4Y1ZmlsZTovL0RFVi1DRVJUMy5pbnRyYS5kaXRlYy5zay9DZXJ0RW5yb2xsL0RUQyBDQS5jcmwwagYIKwYBBQUHAQEEXjBcMFoGCCsGAQUFBzAChk5maWxlOi8vREVWLUNFUlQzLmludHJhLmRpdGVjLnNrL0NlcnRFbnJvbGwvREVWLUNFUlQzLmludHJhLmRpdGVjLnNrX0RUQyBDQS5jcnQwDQYJKoZIhvcNAQELBQADggEBADGsTviGHeW8chmn0rt1xwx8lvyEJTGal8ph9HlzWDOB83+Ns/7SRSXMepSIzJOhn/BXEWgr9ck0BA2Lg2XsC0v57c8Gd0c0r80p/Iw28VeFfDM83OLF/ycxFsBmulIV/akfzAnprCWLuk+MKwQZ7yXsd73T4xp4kZk6DrKcUhucae/LaxzWQKteyk70fT21fmOS+Hamtw+YMC01k1IBpQmKtWbZPH7pWPQZAsKp/6QOSK1iTRw+q6RTu+aSGZlyznF6husryeaGuUWRwCsy5FxXMElVBD6Mv+aT7z1GSpSbgGmXPOHhou+SYyMD+0UfxnsZsMZyOuuJI63ReQaGVQ8=</ds:X509Certificate>
+                <ds:X509IssuerSerial>
+                    <ds:X509IssuerName>CN=DTC CA, OU=DTC Certification Authority, OU=Software Division, O=DITEC A.S., L=Bratislava, S=Slovak Republic, C=SK</ds:X509IssuerName>
+                    <ds:X509SerialNumber>228192248319238714949938</ds:X509SerialNumber>
+                </ds:X509IssuerSerial>
+                <ds:X509SubjectName>CN=Adam Ditekac 256</ds:X509SubjectName>
+            </ds:X509Data>
+        </ds:KeyInfo>
+        <ds:Object>
+            <xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Target="#signatureId">
+                <xades:SignedProperties Id="signatureIdSignedProperties">
+                    <xades:SignedSignatureProperties>
+                        <xades:SigningTime>2016-11-02T14:29:14+01:00</xades:SigningTime>
+                        <xades:SigningCertificate>
+                            <xades:Cert>
+                                <xades:CertDigest>
+                                    <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                                    <ds:DigestValue>kpZRYmcKwey/15Z0PA3a9eMhYKDoGOCCsP2tv7kLeZE=</ds:DigestValue>
+                                </xades:CertDigest>
+                                <xades:IssuerSerial>
+                                    <ds:X509IssuerName>CN=DTC CA, OU=DTC Certification Authority, OU=Software Division, O=DITEC A.S., L=Bratislava, S=Slovak Republic, C=SK</ds:X509IssuerName>
+                                    <ds:X509SerialNumber>228192248319238714949938</ds:X509SerialNumber>
+                                </xades:IssuerSerial>
+                            </xades:Cert>
+                        </xades:SigningCertificate>
+                        <xades:SignaturePolicyIdentifier>
+                            <xades:SignaturePolicyId>
+                                <xades:SigPolicyId>
+                                    <xades:Identifier>urn:oid:1.3.158.36061701.1.2.1</xades:Identifier>
+                                </xades:SigPolicyId>
+                                <xades:SigPolicyHash>
+                                    <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                                    <ds:DigestValue>+Ce4bXF5DGPGR63De6v7lrF0uFqsaBjrQTV5h7gs1jc=</ds:DigestValue>
+                                </xades:SigPolicyHash>
+                            </xades:SignaturePolicyId>
+                        </xades:SignaturePolicyIdentifier>
+                    </xades:SignedSignatureProperties>
+                    <xades:SignedDataObjectProperties>
+                        <xades:DataObjectFormat ObjectReference="#ReferenceManifestID1">
+                            <xades:Description>catalog</xades:Description>
+                            <xades:ObjectIdentifier>
+                                <xades:Identifier>http://schemas.fiit.sk/form</xades:Identifier>
+                            </xades:ObjectIdentifier>
+                            <xades:MimeType>application/xml</xades:MimeType>
+                        </xades:DataObjectFormat>
+                        <xades:DataObjectFormat ObjectReference="#ReferenceManifestID1VerificationObject">
+                            <xades:Description>Verifikačné dáta pre catalog</xades:Description>
+                            <xades:ObjectIdentifier>
+                                <xades:Identifier>http://www.ditec.sk/ep/signature_formats/xades_zep_xml/v1.0</xades:Identifier>
+                            </xades:ObjectIdentifier>
+                            <xades:MimeType>application/xml</xades:MimeType>
+                        </xades:DataObjectFormat>
+                    </xades:SignedDataObjectProperties>
+                </xades:SignedProperties>
+                <xades:UnsignedProperties>
+                    <xades:UnsignedSignatureProperties>
+                        <xades:SignatureTimeStamp>
+                            <xades:EncapsulatedTimeStamp>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</xades:EncapsulatedTimeStamp>
+                        </xades:SignatureTimeStamp>
+                    </xades:UnsignedSignatureProperties>
+                </xades:UnsignedProperties>
+            </xades:QualifyingProperties>
+        </ds:Object>
+        <ds:Object>
+            <ds:SignatureProperties Id="signatureIdSignatureProperties">
+                <ds:SignatureProperty Target="#signatureId">
+                    <xzep:SignatureVersion>http://www.ditec.sk/ep/signature_formats/xades_zep/v1.0</xzep:SignatureVersion>
+                </ds:SignatureProperty>
+                <ds:SignatureProperty Target="#signatureId">
+                    <xzep:ProductInfos>
+                        <xzep:ProductInfo>
+                            <xzep:ProductName>Ditec.Zep.DSigXades.XadesSig</xzep:ProductName>
+                            <xzep:ProductVersion>3.0.0.0</xzep:ProductVersion>
+                        </xzep:ProductInfo>
+                        <xzep:ProductInfo>
+                            <xzep:ProductName>Ditec.Zep.DSigXades.Plugins.PdfObject</xzep:ProductName>
+                            <xzep:ProductVersion>3.0.0.0</xzep:ProductVersion>
+                        </xzep:ProductInfo>
+                        <xzep:ProductInfo>
+                            <xzep:ProductName>Ditec.Zep.DSigXades.Plugins.PngObject</xzep:ProductName>
+                            <xzep:ProductVersion>1.0.0.0</xzep:ProductVersion>
+                        </xzep:ProductInfo>
+                        <xzep:ProductInfo>
+                            <xzep:ProductName>Ditec.Zep.DSigXades.Plugins.TxtObject</xzep:ProductName>
+                            <xzep:ProductVersion>1.0.0.0</xzep:ProductVersion>
+                        </xzep:ProductInfo>
+                        <xzep:ProductInfo>
+                            <xzep:ProductName>Ditec.Zep.DSigXades.Plugins.XmlObject</xzep:ProductName>
+                            <xzep:ProductVersion>3.0.0.0</xzep:ProductVersion>
+                        </xzep:ProductInfo>
+                    </xzep:ProductInfos>
+                </ds:SignatureProperty>
+            </ds:SignatureProperties>
+        </ds:Object>
+        <ds:Object>
+            <ds:Manifest Id="ManifestID1">
+                <ds:Reference Type="http://www.w3.org/2000/09/xmldsig#Object" URI="#ID1">
+                    <ds:Transforms>
+                        <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </ds:Transforms>
+                    <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                    <ds:DigestValue>EmgL6NH9bj/1QzrQdzNnAxPQeaCfEhyGZxhMnZazgCs=</ds:DigestValue>
+                </ds:Reference>
+            </ds:Manifest>
+            <ds:Manifest Id="ManifestID1VerificationObject">
+                <ds:Reference Type="http://www.w3.org/2000/09/xmldsig#Object" URI="#ID1VerificationObject">
+                    <ds:Transforms>
+                        <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </ds:Transforms>
+                    <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                    <ds:DigestValue>gZqj2kzkrLsx8N8Rj9JTuqpgzS5b2gicyN4VYax1opI=</ds:DigestValue>
+                </ds:Reference>
+            </ds:Manifest>
+        </ds:Object>
+    </ds:Signature>
+</xzep:DataEnvelope>
