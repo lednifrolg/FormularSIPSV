@@ -2,6 +2,8 @@
   <library name="jacob-1">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/lib/jacob-1.18" />
+      <root url="jar://$PROJECT_DIR$/lib/bcpkix-jdk15on-155.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bcprov-jdk15on-155.jar!/" />
     </CLASSES>
     <JAVADOC />
     <NATIVE>

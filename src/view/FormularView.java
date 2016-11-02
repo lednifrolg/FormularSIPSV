@@ -4,6 +4,7 @@ import controller.Controller;
 import model.Variant;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 /**
  * Created by Nolofinwe on 10/22/2016.
@@ -23,6 +24,7 @@ public class FormularView extends JFrame {
     private JTextField mAvailTextField;
     private JTextField mSizeTextField;
     private JPanel MainPanel;
+    private JButton signTSButton;
 
     private Controller mController;
 
@@ -49,10 +51,16 @@ public class FormularView extends JFrame {
 
         signButton.addActionListener(evt -> mSignDocButtonActionPerformed(evt));
 
+        signTSButton.addActionListener(evt -> signTSButtonActionPerformed(evt));
+
         this.setContentPane(MainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
+    }
+
+    private void signTSButtonActionPerformed(ActionEvent evt) {
+        mController.signDocTS();
     }
 
     public JTextField getAvailTextField() {
@@ -104,7 +112,7 @@ public class FormularView extends JFrame {
     }//GEN-LAST:event_mSaveXSLTButtonActionPerformed
 
     private void mSignDocButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        mController.SignDoc();
+        mController.signDoc();
     }
 
 }

@@ -7,18 +7,29 @@ package controller;
 
 import model.Product;
 import model.Variant;
+import org.bouncycastle.tsp.*;
+import org.bouncycastle.util.encoders.Base64;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 import util.WriteXMLFile;
 import util.XMLSigner;
 import view.FormularView;
+import webservice.TS;
+import webservice.TSSoap;
 
 import javax.swing.*;
 import javax.xml.XMLConstants;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
+import javax.xml.ws.WebServiceException;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -52,6 +63,17 @@ public class Controller {
         m.addElement(variant);
 
         mVariants.add(variant);
+        try {
+            getap();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (TSPException e) {
+            e.printStackTrace();
+        }
     }
 
     public void removeVariant() {
@@ -154,9 +176,55 @@ public class Controller {
             mProduct.setVariants(mVariants);
     }
 
-    public void SignDoc() {
+    public void signDoc() {
         XMLSigner signer = new XMLSigner("src/formular/file.xml", "src/formular/schema2.xsd", "src/formular/transformSchema.xslt", "http://schemas.fiit.sk/form");
         signer.sign();
+    }
+
+    public void signDocTS() {
+        XMLSigner signer = new XMLSigner("src/formular/file.xml", "src/formular/schema2.xsd", "src/formular/transformSchema.xslt", "http://schemas.fiit.sk/form");
+        String result = signer.signWithTimeStamp();
+        showDialog("Signing with TimeStamp : " + result);
+    }
+
+    private void getap() throws IOException, ParserConfigurationException, SAXException, TSPException {
+        String xmlFilePath = "sign.xml";
+
+        DocumentBuilderFactory factory =
+                DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = factory.newDocumentBuilder();
+        Document document = docBuilder.parse(new File(xmlFilePath));
+
+        Node signatureValueElement =
+                document.getElementsByTagName("ds:SignatureValue").item(0);
+
+        String out = signatureValueElement.getChildNodes().item(0).getNodeValue();
+
+        byte[] signatureValue = out.getBytes();
+
+        TimeStampRequestGenerator reqGen = new TimeStampRequestGenerator();
+        reqGen.setCertReq(true);
+        TimeStampRequest tsReq = reqGen.generate(TSPAlgorithms.SHA1, signatureValue);
+
+        byte[] tsData = tsReq.getEncoded();
+
+        String base64data = Base64.toBase64String(tsData);
+
+        TS ts = new TS();
+        TSSoap soap = ts.getTSSoap();
+        String timestamp = soap.getTimestamp(base64data);
+        if(timestamp == null)
+            throw new WebServiceException("Webová služba nedostupná");
+
+        byte[] responseB64 = timestamp.getBytes();
+
+
+        TimeStampResponse tsRes =
+                new TimeStampResponse(Base64.decode(responseB64));
+
+        String decodedTimestamp = Base64.toBase64String(tsRes.getTimeStampToken().getEncoded());
+        System.out.println(decodedTimestamp);
+
     }
 
     private void showDialog(String message) {

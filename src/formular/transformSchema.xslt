@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:egonp="http://schemas.fiit.sk/form">
+    <xsl:output method="html" encoding="UTF-8" indent="yes"/>
     <xsl:template match="/">
         <html>
             <body>
                 <table border="1">
-                    <tr bgcolor="#9acd32">
+                    <tr bgcolor="#ff0000">
                         <th>Product Name</th>
                         <th>Price</th>
                         <th>Size</th>
